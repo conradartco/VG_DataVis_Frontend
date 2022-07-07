@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import DisplayGames from './Components/DisplayGames/DisplayGames';
 
 function App() {
+
+  const [videoGames, setVideoGames] = useState([]);
+
+  useEffect(() => {
+    getAllVideoGames();
+  }, [])
+
+  async function getAllVideoGames() {
+    try {
+      let response = await axios.get('http://localhost:8080/videoGames')
+      setVideoGames(response.data)
+    } catch (err) {
+      console.log('Error in getAllVideoGames axios request: ' + err)
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <DisplayGames vgData={videoGames}/>
+      </div>
     </div>
   );
 }
