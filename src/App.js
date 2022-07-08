@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <div>
-        <DisplayGames vgData={videoGames}/>
+        <DisplayGames videoGames={videoGames}/>
       </div>
     </div>
   );
