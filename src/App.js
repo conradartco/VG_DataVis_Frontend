@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DisplayGames from './Components/DisplayGames/DisplayGames';
+import TopGrossGames from './Components/TopGrossGames/TopGrossGames';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
     <div>
       <div>
         <DisplayGames videoGames={videoGames}/>
+      </div>
+      <div>
+        <TopGrossGames videoGames={videoGames}/>
       </div>
     </div>
   );

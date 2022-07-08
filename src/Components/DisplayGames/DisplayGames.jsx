@@ -15,14 +15,14 @@ const DisplayGames = ({videoGames}) => {
     let platformArrays = distinctPlatform.map(platform => {
 
         let allGamesForPlatform = filteredGames.filter(game => game.platform === platform);
-        console.log('allGamesForPlatform in platformArrays: ', allGamesForPlatform);
+        // console.log('allGamesForPlatform in platformArrays: ', allGamesForPlatform);
         // loop through allGamesForPlatform and sum each globalsales
 
         let globalSalesByPlatform = allGamesForPlatform.map(game => game.globalsales);
-        console.log('globalSalesByPlatform in platformArrays: ', globalSalesByPlatform);
+        // console.log('globalSalesByPlatform in platformArrays: ', globalSalesByPlatform);
 
         let globalSalesSum = globalSalesByPlatform.reduce((partialSum, a) => partialSum + a, 0);
-        console.log('globalSalesSum in platformArrays: ', globalSalesSum);
+        // console.log('globalSalesSum in platformArrays: ', globalSalesSum);
         // with sum of globalsales - drop into index 1 of return array
 
         return [platform, globalSalesSum, "silver"]
