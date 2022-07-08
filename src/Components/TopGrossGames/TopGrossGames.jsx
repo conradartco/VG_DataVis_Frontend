@@ -1,3 +1,4 @@
+// import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 import YearSearchField from "../YearSearchField/YearSearchField";
 
@@ -10,28 +11,38 @@ import YearSearchField from "../YearSearchField/YearSearchField";
 
 const TopGrossGames = ({videoGames}) => {
 
+
     let filteredGames = videoGames.filter(game => game.year === 2000);
-    // console.log('filteredGames inside TopGrossGames: ', filteredGames);
+    console.log('filteredGames inside TopGrossGames: ', filteredGames);
 
     let gamesGlobalSales = filteredGames.map(game => game.globalsales);
-    // console.log('gamesGlobalSales inside TopGrossGames: ', gamesGlobalSales);
+    console.log('gamesGlobalSales inside gameArrays: ', gamesGlobalSales);
 
     let gamesGlobalSalesSorted = gamesGlobalSales.sort((a, b) => b - a);
-    // console.log('gamesGlobalSalesSorted inside TopGrossGames: ', gamesGlobalSalesSorted);
+    console.log('gamesGlobalSalesSorted inside gameArrays: ', gamesGlobalSalesSorted);
 
-    let gameFirstPlace = filteredGames.find(game => game.globalsales === gamesGlobalSalesSorted[0]);
-    // console.log('gameFirstPlace.name inside TopGrossGames: ', gameFirstPlace.name);
-    let gameSecondPlace = filteredGames.find(game => game.globalsales === gamesGlobalSalesSorted[1]);
-    let gameThirdPlace = filteredGames.find(game => game.globalsales === gamesGlobalSalesSorted[2]);
+    let gameFirstPlace = filteredGames.filter(game => game.globalsales === gamesGlobalSalesSorted[0]);
+    console.log('gameFirstPlace inside gameArrays: ', gameFirstPlace);
+    let gameSecondPlace = filteredGames.filter(game => game.globalsales === gamesGlobalSalesSorted[1]);
+    let gameThirdPlace = filteredGames.filter(game => game.globalsales === gamesGlobalSalesSorted[2]);
+
+
+    let gameArrays = [
+
+        [gameFirstPlace[0].name, gamesGlobalSalesSorted[0], "silver"],
+        [gameSecondPlace[0].name, gamesGlobalSalesSorted[1], "silver"],
+        [gameThirdPlace[0].name, gamesGlobalSalesSorted[2], "silver"],
+
+        ]
+
+    console.log('gameArrays inside TopGrossGames', gameArrays);
 
     function generateChartData() {
         const data = [
             ["Game", "Sales", { role: "style" }],
-            [gameFirstPlace.name, gamesGlobalSalesSorted[0], "silver"],
-            [gameSecondPlace.name, gamesGlobalSalesSorted[1], "silver"],
-            [gameThirdPlace.name, gamesGlobalSalesSorted[2], "silver"],
+            ...gameArrays
         ];
-        // console.log('data in generateChartData: ', data);
+        console.log('data in generateChartData: ', data);
         return data;
     }
 
@@ -43,9 +54,8 @@ const TopGrossGames = ({videoGames}) => {
             <div>
                 <h2>Top Grossing Games Globally for 'YEAR'</h2>
                 <p>Values represented in millions</p>
-                <Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />
+                {videoGames.length > 0 && <Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />}
             </div>
-            
         </div>
     )
 }
