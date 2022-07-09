@@ -16,31 +16,49 @@ const TopGrossGames = ({videoGames}) => {
     console.log('filteredGames inside TopGrossGames: ', filteredGames);
 
     let gamesGlobalSales = filteredGames.map(game => game.globalsales);
-    console.log('gamesGlobalSales inside gameArrays: ', gamesGlobalSales);
+    console.log('gamesGlobalSales inside TopGrossGames: ', gamesGlobalSales);
 
     let gamesGlobalSalesSorted = gamesGlobalSales.sort((a, b) => b - a);
-    console.log('gamesGlobalSalesSorted inside gameArrays: ', gamesGlobalSalesSorted);
+    console.log('gamesGlobalSalesSorted inside TopGrossGames: ', gamesGlobalSalesSorted);
 
-    let gameFirstPlace = filteredGames.filter(game => game.globalsales === gamesGlobalSalesSorted[0]);
-    console.log('gameFirstPlace inside gameArrays: ', gameFirstPlace);
-    let gameSecondPlace = filteredGames.filter(game => game.globalsales === gamesGlobalSalesSorted[1]);
-    let gameThirdPlace = filteredGames.filter(game => game.globalsales === gamesGlobalSalesSorted[2]);
+    const topGrossArray = []
+    for (let i = 0; (i <3 && i < gamesGlobalSalesSorted.length); i++) {
+        topGrossArray.push(gamesGlobalSalesSorted[i]);
+    }
+    console.log('topGrossArray in TopGrossGames: ', topGrossArray);
 
+    let gameDataArray = topGrossArray.map(data => {
 
-    let gameArrays = [
+        let foundGame = [];
+        for (let i = 0; i < topGrossArray.length; i++) {
+            let topGame = filteredGames.filter(game => game.globalsales === topGrossArray[i])
+            foundGame.push(topGame)
+        }
+        console.log('foundGame in gameDataArray: ', foundGame);
 
-        [gameFirstPlace[0].name, gamesGlobalSalesSorted[0], "silver"],
-        [gameSecondPlace[0].name, gamesGlobalSalesSorted[1], "silver"],
-        [gameThirdPlace[0].name, gamesGlobalSalesSorted[2], "silver"],
+        let foundGameFlat = foundGame.flat(3);
+        console.log('foundGameFlat in gameDataArray: ', foundGameFlat);
 
-        ]
+        let foundGameName = [];
+        for (let i = 0; i < foundGameFlat.length; i++) {
+            foundGameName.push(foundGameFlat[i].name)
+        }
+        console.log('foundGameName in gameDataArray: ', foundGameName);
 
-    console.log('gameArrays inside TopGrossGames', gameArrays);
+        // const indexIterator = (i) => i += 0;
+        var y = 0;
+        var x = foundGameName.reduce(
+            (previousValue, currentValue) => previousValue + currentValue, y
+        );
+
+        return [foundGameName[x], data, "silver"]
+    })
+    console.log('gameDataArray in TopGrossGames: ', gameDataArray);
 
     function generateChartData() {
         const data = [
             ["Game", "Sales", { role: "style" }],
-            ...gameArrays
+            ...gameDataArray
         ];
         console.log('data in generateChartData: ', data);
         return data;
