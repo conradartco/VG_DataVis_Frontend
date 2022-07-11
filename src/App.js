@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DisplayGames from './Components/DisplayGames/DisplayGames';
-import TopGrossGames from './Components/TopGrossGames/TopGrossGames';
+import UserTopRankYear from './Components/UserTopRankYear/UserTopRankYear';
+import UserGameSearch from './Components/UserGameSearch/UserGameSearch';
 
 function App() {
 
@@ -26,7 +27,10 @@ function App() {
         <DisplayGames videoGames={videoGames}/>
       </div>
       <div>
-        <TopGrossGames videoGames={videoGames}/>
+        <UserTopRankYear videoGames={videoGames}/>
+      </div>
+      <div>
+        <UserGameSearch videoGames={videoGames}/>
       </div>
     </div>
   );
