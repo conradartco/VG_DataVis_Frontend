@@ -6,7 +6,7 @@ const VideoGameObjectDisplay = (props) => {
         <div>
             {props.videoGames.map((entry) => {
                 return (
-                    <VideoGameObjectCard key={entry.id} parentImport={entry}/>
+                    <VideoGameObjectCard key={entry.id} parentImport={entry} allGames={props.allGames}/>
                 );
             })}
         </div>

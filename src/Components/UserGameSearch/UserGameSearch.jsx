@@ -23,7 +23,7 @@ const UserGameSearch = (props) => {
                 <SearchField queryData={searchFilter}/>
             </div>
             <div>
-                <VideoGameObjectDisplay videoGames={games}/>
+                <VideoGameObjectDisplay videoGames={games} allGames={props.videoGames}/>
             </div>
         </div>
     )

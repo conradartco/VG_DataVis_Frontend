@@ -1,4 +1,5 @@
 import { useState } from "react";
+import VideoGameObjectConsoleSales from "./VideoGameObjectConsoleSales";
 
 const VideoGameObjectCard = (props) => {
 
@@ -22,6 +23,9 @@ const VideoGameObjectCard = (props) => {
                         <p>Global Sales: {props.parentImport.globalsales} million</p>
                     </div>
                 )}
+            </div>
+            <div>
+                <VideoGameObjectConsoleSales parentImport={props.parentImport} allGames={props.allGames}/>
             </div>
         </div>
     )
