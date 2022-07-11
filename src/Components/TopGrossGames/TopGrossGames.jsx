@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
 
 // To-Do //
@@ -9,16 +10,28 @@ import { Chart } from "react-google-charts";
 
 const TopGrossGames = (props) => {
 
-    let filteredGames = props.videoGames.filter(game => game.year === props.yearInput);
+    const [rerender, setRerender] = useState(false)
+
+    useEffect(() => {
+       setRerender(!rerender)
+    }, [props.yearInput])
+   
+    let filteredGames = props.videoGames.filter(game => game.year === parseInt(props.yearInput));
+    // console.log('props.videoGames in TopGrossGames: ', props.videoGames);
+    // console.log('props.yearInput in TopGrossGames: ', props.yearInput);
+    // console.log('filteredGames in TopGrossGames: ', filteredGames);
 
     let gamesGlobalSales = filteredGames.map(game => game.globalsales);
+    // console.log('gamesGlobalSales in TopGrossGames: ', gamesGlobalSales);
 
     let gamesGlobalSalesSorted = gamesGlobalSales.sort((a, b) => b - a);
+    // console.log('gamesGlobalSalesSorted in TopGrossGames: ', gamesGlobalSalesSorted);
 
     const topGrossArray = []
     for (let i = 0; (i <3 && i < gamesGlobalSalesSorted.length); i++) {
         topGrossArray.push(gamesGlobalSalesSorted[i]);
     }
+    // console.log('topGrossArray in TopGrossGames: ', topGrossArray);
 
     let foundGame = [];
     for (let i = 0; i < topGrossArray.length; i++) {
@@ -33,6 +46,8 @@ const TopGrossGames = (props) => {
         foundGameName.push(foundGameFlat[i].name)
     }
 
+
+
     function generateChartData() {
         const data = [
             ["Game", "Sales", { role: "style" }],
@@ -40,18 +55,18 @@ const TopGrossGames = (props) => {
             [foundGameName[1], topGrossArray[1], "silver"],
             [foundGameName[2], topGrossArray[2], "brown"],
         ];
-        console.log('data in generateChartData: ', data);
+        // console.log('data in generateChartData: ', data);
         return data;
     }
 
     return (
         <div>
             <div>
-                <h2>Top Grossing Games Globally for 'YEAR'</h2>
+                <h2>Top Grossing Games Globally for {props.yearInput}</h2>
                 <p>Values represented in millions</p>
             </div>
             <div>
-                {videoGames.length > 0 && <Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />}
+                {<Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />}
             </div>
         </div>
     )

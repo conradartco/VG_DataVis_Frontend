@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const YearSearchField = (props) => {
 
-    const [query, setQuery] = useState();
+    const [query, setQuery] = useState('');
 
     function handleSubmit(event) {
         event.preventDefault();
