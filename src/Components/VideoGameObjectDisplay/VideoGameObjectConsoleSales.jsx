@@ -20,7 +20,7 @@ const VideoGameObjectConsoleSales = (props) => {
 
     const options = {
         // title: "Number of Copies Sold",
-        sliceVisibilityThreshold: 0.2,
+        // sliceVisibilityThreshold: 0.2,
         legend: {position: 'bottom', alignment: 'center'},
         colors: ["#437091", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#4caf50", "#8bc34a", "#cddc39"],
         areaOpacity: 0.24,

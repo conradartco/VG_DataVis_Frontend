@@ -10,3 +10,17 @@
     margin-top: 20px;
     font-style: italic;
 }
+
+.chart-header {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    color: white;
+    background-color: #446f90;
+    display: flex;
+    justify-content: center;
+    width: 432px;
+    height: 40px;
+    border-radius: 20px;
+    align-items: center;
+}

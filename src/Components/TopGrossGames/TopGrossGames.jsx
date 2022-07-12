@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Chart } from "react-google-charts";
+import "./TopGrossGames.css";
 
 // To-Do //
 // Create an input field that will accept user requested year // or drop-down menu with available years
@@ -51,22 +52,45 @@ const TopGrossGames = (props) => {
     function generateChartData() {
         const data = [
             ["Game", "Sales", { role: "style" }],
-            [foundGameName[0], topGrossArray[0], "gold"],
-            [foundGameName[1], topGrossArray[1], "silver"],
-            [foundGameName[2], topGrossArray[2], "brown"],
+            [foundGameName[0], topGrossArray[0], "#437091"],
+            [foundGameName[1], topGrossArray[1], "#759dba"],
+            [foundGameName[2], topGrossArray[2], "#afcbe0"],
         ];
         // console.log('data in generateChartData: ', data);
         return data;
     }
 
+    const options = {
+        hAxis: {
+            gridlines: { count:0},
+            textStyle: { color: '#1a4c71', fontName: 'Roboto', fontSize: '12', bold: true}
+        },
+        vAxis: {
+            gridlines: {color: "#437091", count:4},
+            baselineColor: "transparent",
+            textStyle: { color: '#437091', fontName: 'Roboto', fontSize: '12', bold: true}
+        },
+        legend: {position: "top", alignment: "center"},
+        areaOpacity: 0.24,
+        lineWidth: 1,
+        backgroundColor: "transparent",
+        chartArea: {
+            backgroundColor: "transparent",
+            width: "90%",
+            height: "80%",
+        },
+        height: "300",
+        width: "600",
+    }
+
     return (
         <div>
-            <div>
+            <div className='chart-header'>
                 <h2>Top Grossing Games Globally for {props.yearInput}</h2>
-                <p>Values represented in millions</p>
             </div>
-            <div>
-                {<Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />}
+            <div className='gross-games-chart'>
+                {<Chart chartType="ColumnChart" options={options} data={generateChartData()} />}
+                <p className='footnote'>Values represented in millions</p>
             </div>
         </div>
     )

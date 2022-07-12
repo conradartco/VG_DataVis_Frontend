@@ -17,10 +17,10 @@ const UserTopRankYear = ({videoGames}) => {
     return (
         <div>
             <div>
-                <YearSearchField videoGames={videoGames} yearInput={yearInput}/>
+                {videoGames.length > 0 &&<TopGrossGames videoGames={videoGames} yearInput={userYear}/>}
             </div>
             <div>
-                {videoGames.length > 0 &&<TopGrossGames videoGames={videoGames} yearInput={userYear}/>}
+                <YearSearchField videoGames={videoGames} yearInput={yearInput}/>
             </div>
         </div>
     )

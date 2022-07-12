@@ -62,10 +62,16 @@ const DisplayGames = ({videoGames}) => {
     }
 
     return (
-        <div className="game-sales-chart">
-            <Chart chartType="ColumnChart" options={options} data={generateChartData()} />
-            <p className="footnote">Values represented in millions</p>
+        <div>
+            <div className='chart-header'>
+                <h2>Top Earning Consoles Since 2013</h2>
+            </div>
+            <div className="game-sales-chart">
+                <Chart chartType="ColumnChart" options={options} data={generateChartData()} />
+                <p className="footnote">Values represented in millions</p>
+            </div>
         </div>
+        
     );
 }
 

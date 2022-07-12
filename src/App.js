@@ -38,6 +38,9 @@ function App() {
   return (
     <div>
       <div className='app-container'>
+        <div>
+          <UserGameSearch videoGames={videoGames}/>
+        </div>
         <div className='show-container'>
           <div className='container-header'>
             <h2>Games Sold per Console</h2>
@@ -76,9 +79,6 @@ function App() {
                 <UserTopRankYear videoGames={videoGames}/>
             </div>
           )}
-        </div>
-        <div>
-          <UserGameSearch videoGames={videoGames}/>
         </div>
       </div>
     </div>
