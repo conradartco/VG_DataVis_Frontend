@@ -7,6 +7,18 @@ import UserGameSearch from './Components/UserGameSearch/UserGameSearch';
 function App() {
 
   const [videoGames, setVideoGames] = useState([]);
+  const [showSales, setShowSales] = useState(false);
+  const [showGross, setShowGross] = useState(false);
+
+  const handleClickSales = event => {
+    setShowSales(current => !current);
+  }
+
+  const handleClickGross = event => {
+    setShowGross(current => !current);
+  }
+
+
 
   useEffect(() => {
     getAllVideoGames();
@@ -25,10 +37,30 @@ function App() {
   return (
     <div>
       <div>
-        <DisplayGames videoGames={videoGames}/>
+        <h2>Game Copies Sold Globally per Console</h2>
+        <button onClick={() => {
+          handleClickSales(() => {
+            setShowSales(current => !current);
+          });
+        }}>Show Data</button>
+        {showSales && (
+          <div>
+            <DisplayGames videoGames={videoGames}/>
+          </div>
+        )}
       </div>
       <div>
-        <UserTopRankYear videoGames={videoGames}/>
+        <h2>Top Grossing Games</h2>
+        <button onClick={() => {
+          handleClickGross(() => {
+            setShowGross(current => !current);
+          });
+        }}>Show Data</button>
+          {showGross && (
+            <div>
+               <UserTopRankYear videoGames={videoGames}/>
+            </div>
+          )}
       </div>
       <div>
         <UserGameSearch videoGames={videoGames}/>

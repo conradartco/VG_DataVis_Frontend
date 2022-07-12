@@ -40,9 +40,8 @@ const DisplayGames = ({videoGames}) => {
 
     return (
         <div>
-            <h2>Games sold globally since 2013</h2>
-            <p>Values represented in millions</p>
             <Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />
+            <p>Values represented in millions</p>
         </div>
     );
 }
