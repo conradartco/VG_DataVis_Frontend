@@ -8,41 +8,14 @@ const VideoGameObjectConsoleSales = (props) => {
     const handleClick = event => {
         setShow(current => !current);
     }
-    // console.log("props.allGames in here: ", props.allGames);
 
-    let gameCopies = [];
-    for (let i = 0; i < props.allGames.length; i++) {
-        if (props.parentImport.name === props.allGames[i].name) {
-            gameCopies.push(props.allGames[i]);
-        }
-    }
-    // console.log("gameCopies in here: ", gameCopies);
-        
-    let gameConsoles = [];
-    for (let i = 0; i < gameCopies.length; i++) {
-        gameConsoles.push(gameCopies[i].platform);
-    }
-    // console.log("gameConsoles in here: ", gameConsoles);
-
-    let consoleArrays = gameConsoles.map(console => {
-        
-        let globalSalesByConsole = gameCopies.map(game => game.globalsales);
-
-        let gameGlobalSales = []
-        for (let i = 0; i < globalSalesByConsole.length; i++) {
-            gameGlobalSales = globalSalesByConsole[i];
-        }
-
-        return [console, gameGlobalSales]
-    })
-
-    console.log("consoleArrays in here: ", consoleArrays);
+    let results = props.allGames.filter(el => props.parentImport.name === el.name).map(el => [el.platform, el.globalsales])
 
     const data = [
         ["Console", "Sales"],
-        ...consoleArrays
+        ...results
     ]
-    console.log("data in here: ", data);
+    console.log("data in VideoGameObjectConsoleSales: ", data);
 
     const options = {
         title: "Number of Copies Sold",
