@@ -3,6 +3,7 @@ import axios from 'axios';
 import DisplayGames from './Components/DisplayGames/DisplayGames';
 import UserTopRankYear from './Components/UserTopRankYear/UserTopRankYear';
 import UserGameSearch from './Components/UserGameSearch/UserGameSearch';
+import "./App.css";
 
 function App() {
 
@@ -35,32 +36,46 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='app-container'>
+      <div className='show-container'>
+        <div className='container-header'>
+          <h2>Game Copies Sold Globally per Console</h2>
+        </div>
+        <div className='container-button'>
+          <button className='show-container-button' onClick={() => {
+            handleClickSales(() => {
+              setShowSales(current => !current);
+            });
+          }}>SHOW DATA</button>
+        </div>
+        
+      </div>
       <div>
-        <h2>Game Copies Sold Globally per Console</h2>
-        <button onClick={() => {
-          handleClickSales(() => {
-            setShowSales(current => !current);
-          });
-        }}>Show Data</button>
         {showSales && (
           <div>
             <DisplayGames videoGames={videoGames}/>
           </div>
         )}
       </div>
+      <div className='show-container'>
+        <div className='container-header'>
+          <h2>Top Grossing Games</h2>
+        </div>
+        <div className='container-button'>
+          <button className='show-container-button' onClick={() => {
+            handleClickGross(() => {
+              setShowGross(current => !current);
+            });
+          }}>SHOW DATA</button>
+        </div>
+        
+      </div>
       <div>
-        <h2>Top Grossing Games</h2>
-        <button onClick={() => {
-          handleClickGross(() => {
-            setShowGross(current => !current);
-          });
-        }}>Show Data</button>
-          {showGross && (
-            <div>
-               <UserTopRankYear videoGames={videoGames}/>
-            </div>
-          )}
+        {showGross && (
+          <div>
+              <UserTopRankYear videoGames={videoGames}/>
+          </div>
+        )}
       </div>
       <div>
         <UserGameSearch videoGames={videoGames}/>
