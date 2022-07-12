@@ -1,0 +1,37 @@
+.form-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field {
+    padding: 10px;
+    border-radius: 25px;
+    border-color: #437091;
+    width: 300px;
+    border-style: solid;
+    text-align: center;
+    font-size: small;
+    margin-right: 5px;
+}
+
+.search-button {
+    width: 125px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: #437091;
+    font-weight: 600;
+    height: 40px;
+    margin-left: 5px;
+    background-color: rgb(67, 112, 145);
+    color: white;
+    border-color:white;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    color: #437091;
+    border-color: #437091;
+    background-color: #7ca7c67a;
+}

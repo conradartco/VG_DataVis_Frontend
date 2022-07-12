@@ -1,5 +1,6 @@
 import { useState } from "react";
 import VideoGameObjectConsoleSales from "./VideoGameObjectConsoleSales";
+import './VideoGameObjectCard.css';
 
 const VideoGameObjectCard = (props) => {
 
@@ -10,17 +11,17 @@ const VideoGameObjectCard = (props) => {
     }
 
     return (
-        <div>
+        <div className="card-container">
             <h3>{props.parentImport.name}</h3>
-            <div>
-                <button onClick={handleClick}>Show Details</button>
+            <div className="card-info">
+                <button className="card-button" onClick={handleClick}>Show Details</button>
                 {show && (
                     <div>
-                        <p>Platform: {props.parentImport.platform}</p>
-                        <p>Year: {props.parentImport.year}</p>
-                        <p>Genre: {props.parentImport.genre}</p>
-                        <p>Publisher: {props.parentImport.publisher}</p>
-                        <p>Global Sales: {props.parentImport.globalsales} million</p>
+                        <p><strong>Platform:</strong> {props.parentImport.platform}</p>
+                        <p><strong>Year:</strong> {props.parentImport.year}</p>
+                        <p><strong>Genre:</strong> {props.parentImport.genre}</p>
+                        <p><strong>Publisher:</strong> {props.parentImport.publisher}</p>
+                        <p><strong>Global Sales:</strong> {props.parentImport.globalsales} million</p>
                     </div>
                 )}
             </div>

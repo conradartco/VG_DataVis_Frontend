@@ -1,0 +1,12 @@
+.game-sales-chart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.footnote {
+    font-size: small;
+    margin-top: 20px;
+    font-style: italic;
+}

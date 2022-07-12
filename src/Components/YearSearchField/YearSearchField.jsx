@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./YearSearchField.css";
 
 const YearSearchField = (props) => {
 
@@ -15,12 +16,12 @@ const YearSearchField = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
             <div>
-                <input type='int' value={query} placeholder="Enter Year..." onChange={(event) => setQuery(event.target.value)}/>
+                <input className="input-field" type='int' value={query} placeholder="...Enter Year..." onChange={(event) => setQuery(event.target.value)}/>
             </div>
             <div>
-                <button type='submit'>Search</button>
+                <button className="search-button" type='submit'>Search</button>
             </div>
         </form>
     );

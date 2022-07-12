@@ -36,49 +36,50 @@ function App() {
   }
 
   return (
-    <div className='app-container'>
-      <div className='show-container'>
-        <div className='container-header'>
-          <h2>Game Copies Sold Globally per Console</h2>
-        </div>
-        <div className='container-button'>
-          <button className='show-container-button' onClick={() => {
-            handleClickSales(() => {
-              setShowSales(current => !current);
-            });
-          }}>SHOW DATA</button>
-        </div>
-        
-      </div>
-      <div>
-        {showSales && (
-          <div>
-            <DisplayGames videoGames={videoGames}/>
+    <div>
+      <div className='app-container'>
+        <div className='show-container'>
+          <div className='container-header'>
+            <h2>Games Sold per Console</h2>
           </div>
-        )}
-      </div>
-      <div className='show-container'>
-        <div className='container-header'>
-          <h2>Top Grossing Games</h2>
-        </div>
-        <div className='container-button'>
-          <button className='show-container-button' onClick={() => {
-            handleClickGross(() => {
-              setShowGross(current => !current);
-            });
-          }}>SHOW DATA</button>
-        </div>
-        
-      </div>
-      <div>
-        {showGross && (
-          <div>
-              <UserTopRankYear videoGames={videoGames}/>
+          <div className='container-button'>
+            <button className='show-container-button' onClick={() => {
+              handleClickSales(() => {
+                setShowSales(current => !current);
+              });
+            }}>SHOW DATA</button>
           </div>
-        )}
-      </div>
-      <div>
-        <UserGameSearch videoGames={videoGames}/>
+        </div>
+        <div>
+          {showSales && (
+            <div>
+              <DisplayGames videoGames={videoGames}/>
+            </div>
+          )}
+        </div>
+        <div className='show-container'>
+          <div className='container-header'>
+            <h2>Top Grossing Games</h2>
+          </div>
+          <div className='container-button'>
+            <button className='show-container-button' onClick={() => {
+              handleClickGross(() => {
+                setShowGross(current => !current);
+              });
+            }}>SHOW DATA</button>
+          </div>
+          
+        </div>
+        <div>
+          {showGross && (
+            <div>
+                <UserTopRankYear videoGames={videoGames}/>
+            </div>
+          )}
+        </div>
+        <div>
+          <UserGameSearch videoGames={videoGames}/>
+        </div>
       </div>
     </div>
   );

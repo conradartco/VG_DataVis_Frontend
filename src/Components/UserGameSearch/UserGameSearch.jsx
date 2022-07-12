@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchField from "../SearchField/SearchField";
 import VideoGameObjectDisplay from "../VideoGameObjectDisplay/VideoGameObjectDisplay";
-
+import './UserGameSearch.css';
 
 const UserGameSearch = (props) => {
 
@@ -22,7 +22,7 @@ const UserGameSearch = (props) => {
             <div>
                 <SearchField queryData={searchFilter}/>
             </div>
-            <div>
+            <div className='card-display'>
                 <VideoGameObjectDisplay videoGames={games} allGames={props.videoGames}/>
             </div>
         </div>

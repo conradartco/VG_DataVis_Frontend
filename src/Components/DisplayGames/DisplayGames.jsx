@@ -1,5 +1,5 @@
 import { Chart } from "react-google-charts";
-
+import "./DisplayGames.css";
 
 const DisplayGames = ({videoGames}) => {
 
@@ -38,10 +38,33 @@ const DisplayGames = ({videoGames}) => {
         return data;
     }
 
+    const options = {
+        hAxis: {
+            gridlines: { count:0},
+            textStyle: { color: '#1a4c71', fontName: 'Roboto', fontSize: '12', bold: true}
+        },
+        vAxis: {
+            gridlines: {color: "#437091", count:4},
+            baselineColor: "transparent",
+            textStyle: { color: '#437091', fontName: 'Roboto', fontSize: '12', bold: true}
+        },
+        legend: {position: "top", alignment: "center"},
+        areaOpacity: 0.24,
+        lineWidth: 1,
+        backgroundColor: "transparent",
+        chartArea: {
+            backgroundColor: "transparent",
+            width: "90%",
+            height: "80%",
+        },
+        height: "300",
+        width: "600",
+    }
+
     return (
-        <div>
-            <Chart chartType="ColumnChart" width="100%" height="400px" data={generateChartData()} />
-            <p>Values represented in millions</p>
+        <div className="game-sales-chart">
+            <Chart chartType="ColumnChart" options={options} data={generateChartData()} />
+            <p className="footnote">Values represented in millions</p>
         </div>
     );
 }
