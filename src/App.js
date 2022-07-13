@@ -4,7 +4,7 @@ import DisplayGames from './Components/DisplayGames/DisplayGames';
 import UserTopRankYear from './Components/UserTopRankYear/UserTopRankYear';
 import UserGameSearch from './Components/UserGameSearch/UserGameSearch';
 import "./App.css";
-import headerImage from './Images/header-test.jpg';
+import headerImage from './Images/GAME-CONSOLES-4.jpg';
 
 function App() {
 
