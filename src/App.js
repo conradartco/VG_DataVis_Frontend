@@ -4,6 +4,7 @@ import DisplayGames from './Components/DisplayGames/DisplayGames';
 import UserTopRankYear from './Components/UserTopRankYear/UserTopRankYear';
 import UserGameSearch from './Components/UserGameSearch/UserGameSearch';
 import "./App.css";
+import headerImage from './Images/header-test.jpg';
 
 function App() {
 
@@ -19,8 +20,6 @@ function App() {
     setShowGross(current => !current);
   }
 
-
-
   useEffect(() => {
     getAllVideoGames();
   }, [])
@@ -35,8 +34,19 @@ function App() {
     }
   }
 
+  function HeaderImage() {
+    return (
+      <div className='header-container'>
+        <img className='header-image' src={headerImage} alt="Game Source banner graphic image"/>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className='html-container'>
+      <div>
+        {HeaderImage()}
+      </div>
       <div className='app-container'>
         <div>
           <UserGameSearch videoGames={videoGames}/>

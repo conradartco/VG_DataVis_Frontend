@@ -25,7 +25,7 @@ const DisplayGames = ({videoGames}) => {
         // console.log('globalSalesSum in platformArrays: ', globalSalesSum);
         // with sum of globalsales - drop into index 1 of return array
 
-        return [platform, globalSalesSum, "silver"]
+        return [platform, globalSalesSum, "#a0c3dd"]
     });
     // console.log("platformArrays in DisplayGames: ", platformArrays);
 
@@ -51,6 +51,7 @@ const DisplayGames = ({videoGames}) => {
         legend: {position: "top", alignment: "center"},
         areaOpacity: 0.24,
         lineWidth: 1,
+        colors: ["#a0c3dd"],
         backgroundColor: "transparent",
         chartArea: {
             backgroundColor: "transparent",

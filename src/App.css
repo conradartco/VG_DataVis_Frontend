@@ -11,6 +11,21 @@ html {
     font-family: sans-serif;
 }
 
+.html-container {
+    background-color: #eaf1f7;
+}
+
+.header-container {
+    width: 100%;
+    height: 400px;
+}
+
+.header-image {
+    width: 100%;
+    object-fit: cover;
+    height: 400px;
+}
+
 .app-container {
     margin-left: auto;
     margin-right: auto;

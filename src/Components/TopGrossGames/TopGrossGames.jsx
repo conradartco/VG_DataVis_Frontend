@@ -54,7 +54,7 @@ const TopGrossGames = (props) => {
             ["Game", "Sales", { role: "style" }],
             [foundGameName[0], topGrossArray[0], "#437091"],
             [foundGameName[1], topGrossArray[1], "#759dba"],
-            [foundGameName[2], topGrossArray[2], "#afcbe0"],
+            [foundGameName[2], topGrossArray[2], "#a0c3dd"],
         ];
         // console.log('data in generateChartData: ', data);
         return data;
@@ -73,6 +73,7 @@ const TopGrossGames = (props) => {
         legend: {position: "top", alignment: "center"},
         areaOpacity: 0.24,
         lineWidth: 1,
+        colors: ["#437091", "#759dba", "#a0c3dd"],
         backgroundColor: "transparent",
         chartArea: {
             backgroundColor: "transparent",
